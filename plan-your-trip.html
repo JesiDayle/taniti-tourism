@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Build your Taniti vacation itinerary, track reservations, manage your travel budget, and count down to your trip.">
+
+    <title>My Vacation Planner | Discover Taniti</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/planner.css">
+
+    <script src="js/script.js" defer></script>
+    <script src="js/planner.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ==================================
+         HEADER AND NAVIGATION
+    ================================== -->
+    <header class="site-header">
+
+        <a href="index.html" class="logo">TANITI</a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="main-navigation">
+            ☰
+        </button>
+
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+            <a href="accommodations.html">Accommodations</a>
+            <a href="activities.html">Things to Do</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="plan-your-trip.html" aria-current="page">
+                My Trip Planner
+            </a>
+            <a href="visitor-info.html">Visitor Info</a>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ==================================
+             TROPICAL PLANNER HERO
+        ================================== -->
+        <section class="planner-hero">
+
+            <div class="planner-hero-content">
+
+                <p class="planner-eyebrow">
+                    YOUR PERSONAL ISLAND GETAWAY
+                </p>
+
+                <h1>My Taniti Vacation Planner</h1>
+
+                <p>
+                    Plan your adventures, organize your
+                    reservations, and count down to paradise!
+                </p>
+
+                <a href="#trip-setup" class="btn">
+                    Start Planning
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================
+             VACATION COUNTDOWN
+        ================================== -->
+        <section class="planner-countdown-section" aria-labelledby="countdown-heading">
+
+            <div class="countdown-card">
+
+                <p class="countdown-label">
+                    YOUR ISLAND ADVENTURE BEGINS IN
+                </p>
+
+                <div id="countdown-number" class="countdown-number" aria-live="polite">
+                    --
+                </div>
+
+                <h2 id="countdown-heading">
+                    Countdown to Taniti!
+                </h2>
+
+                <p id="countdown-message">
+                    Enter your vacation dates to begin
+                    the countdown.
+                </p>
+
+                <div class="countdown-progress" role="progressbar" aria-label="Vacation countdown progress"
+                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="countdown-progress">
+
+                    <div id="countdown-progress-fill" class="countdown-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================
+             VACATION OVERVIEW
+        ================================== -->
+        <section class="planner-overview" aria-labelledby="overview-heading">
+
+            <h2 id="overview-heading">
+                My Vacation Dashboard
+            </h2>
+
+            <p class="section-description">
+                All your vacation details in one place.
+            </p>
+
+            <div class="planner-stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon" aria-hidden="true">
+                        &#128197;
+                    </div>
+
+                    <h3>Activities Planned</h3>
+                    <p id="activity-count">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" aria-hidden="true">
+                        &#127915;
+                    </div>
+
+                    <h3>Reservations</h3>
+                    <p id="reservation-count">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" aria-hidden="true">
+                        &#128176;
+                    </div>
+
+                    <h3>Total Expenses</h3>
+                    <p id="total-expenses">$0.00</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" aria-hidden="true">
+                        &#9989;
+                    </div>
+
+                    <h3>Checklist Progress</h3>
+                    <p id="checklist-progress">0%</p>
+                </div>
+
+            </div>
+
+            <!-- Quick navigation to planner features -->
+            <nav class="planner-quick-nav" aria-label="Trip planner sections">
+
+                <a href="#trip-setup">Trip Dates</a>
+                <a href="#itinerary">My Itinerary</a>
+                <a href="#reservations">Reservations</a>
+                <a href="#expenses">Expenses</a>
+                <a href="#checklist">Checklist</a>
+
+            </nav>
+
+        </section>
+
+        <!-- ==================================
+             MAIN PLANNER CONTENT
+        ================================== -->
+        <div class="planner-container">
+
+            <!-- ==================================
+                 MY VACATION DETAILS
+            ================================== -->
+            <section class="planner-panel" id="trip-setup">
+
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">
+                        &#127796;
+                    </span>
+
+                    <div>
+                        <h2>My Vacation</h2>
+                        <p>
+                            Choose your vacation dates
+                            and name your adventure.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="trip-form" class="planner-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="trip-name">
+                            Vacation Name
+                        </label>
+
+                        <input type="text" id="trip-name" maxlength="100" placeholder="Our Family Island Adventure">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="start-date">
+                            Departure Date
+                        </label>
+
+                        <input type="date" id="start-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end-date">
+                            Return Date
+                        </label>
+
+                        <input type="date" id="end-date" required>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Save Vacation Dates
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- ==================================
+                 VACATION BUDGET
+            ================================== -->
+            <section class="planner-panel" id="budget">
+
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">
+                        &#128181;
+                    </span>
+
+                    <div>
+                        <h2>My Vacation Budget</h2>
+                        <p>
+                            Set your budget and keep
+                            track of your spending.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="budget-form" class="planner-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="trip-budget">
+                            Total Vacation Budget (USD)
+                        </label>
+
+                        <input type="number" id="trip-budget" min="0" step="0.01" placeholder="3000.00">
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Save Budget
+                    </button>
+
+                </form>
+
+                <div class="budget-summary">
+
+                    <div class="budget-row">
+                        <span>Total Budget</span>
+                        <strong id="budget-total">$0.00</strong>
+                    </div>
+
+                    <div class="budget-row">
+                        <span>Amount Spent</span>
+                        <strong id="budget-spent">$0.00</strong>
+                    </div>
+
+                    <div class="budget-row">
+                        <span>Remaining Budget</span>
+                        <strong id="budget-remaining">$0.00</strong>
+                    </div>
+
+                    <div class="budget-progress" role="progressbar" aria-label="Vacation budget used" aria-valuemin="0"
+                        aria-valuemax="100" aria-valuenow="0" id="budget-progress">
+
+                        <div id="budget-progress-fill" class="budget-progress-fill">
+                        </div>
+
+                    </div>
+
+                    <p id="budget-message" class="budget-message">
+                        Set a budget to start tracking
+                        your vacation spending.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 ACTIVITY ITINERARY
+            ================================== -->
+            <section class="planner-panel planner-panel-wide" id="itinerary">
+
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">
+                        &#128506;
+                    </span>
+
+                    <div>
+                        <h2>My Activity Itinerary</h2>
+                        <p>
+                            Build a day-by-day schedule
+                            for your Taniti adventure.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="planner-split-layout">
+
+                    <!-- Activity Form -->
+                    <div class="planner-form-column">
+
+                        <h3>Add an Activity</h3>
+
+                        <form id="activity-form" class="planner-form" novalidate>
+
+                            <div class="form-group">
+                                <label for="activity-name">
+                                    Activity
+                                </label>
+
+                                <input type="text" id="activity-name" maxlength="120" placeholder="Volcano Sightseeing"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="activity-date">
+                                    Date
+                                </label>
+
+                                <input type="date" id="activity-date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="activity-time">
+                                    Time
+                                </label>
+
+                                <input type="time" id="activity-time" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="activity-notes">
+                                    Notes
+                                </label>
+
+                                <textarea id="activity-notes" rows="3"
+                                    placeholder="Meeting location, details, etc."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn">
+                                Add to Itinerary
+                            </button>
+
+                        </form>
+
+                        <a href="activities.html" class="planner-text-link">
+                            Discover More Activities
+                        </a>
+
+                    </div>
+
+                    <!-- Day-by-day itinerary -->
+                    <div class="planner-results-column">
+
+                        <h3>My Island Schedule</h3>
+
+                        <p class="planner-helper-text">
+                            Activities will appear
+                            in chronological order,
+                            organized by vacation day.
+                        </p>
+
+                        <div id="activity-list" class="planner-list itinerary-timeline">
+
+                            <p class="empty-message">
+                                No activities scheduled yet.
+                                Start building your adventure!
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 RESERVATIONS AND TICKETS
+            ================================== -->
+            <section class="planner-panel" id="reservations">
+
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">
+                        &#127915;
+                    </span>
+
+                    <div>
+                        <h2>Tickets & Reservations</h2>
+                        <p>
+                            Keep your travel bookings
+                            organized in one place.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="reservation-form" class="planner-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="reservation-type">
+                            Reservation Type
+                        </label>
+
+                        <select id="reservation-type" required>
+                            <option value="">
+                                Select Type
+                            </option>
+                            <option value="Flight">Flight</option>
+                            <option value="Hotel">Hotel</option>
+                            <option value="Activity">Activity</option>
+                            <option value="Transportation">
+                                Transportation
+                            </option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reservation-name">
+                            Reservation Name
+                        </label>
+
+                        <input type="text" id="reservation-name" maxlength="120" placeholder="Island Hotel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reservation-date">
+                            Reservation Date
+                        </label>
+
+                        <input type="date" id="reservation-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reservation-reference">
+                            Booking Reference (Optional)
+                        </label>
+
+                        <input type="text" id="reservation-reference" maxlength="100" placeholder="Example: HOTEL-1234">
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Add Reservation
+                    </button>
+
+                </form>
+
+                <div class="planner-list-section">
+                    <h3>My Reservations</h3>
+
+                    <div id="reservation-list" class="planner-list">
+
+                        <p class="empty-message">
+                            No reservations added yet.
+                        </p>
+
+                    </div>
+                </div>
+
+                <p class="planner-note">
+                    This demonstration planner does not
+                    process bookings or payments.
+                    Do not enter payment information
+                    or sensitive booking credentials.
+                </p>
+
+            </section>
+
+            <!-- ==================================
+                 EXPENSE TRACKER
+            ================================== -->
+            <section class="planner-panel" id="expenses">
+
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">
+                        &#128179;
+                    </span>
+
+                    <div>
+                        <h2>Vacation Expense Tracker</h2>
+                        <p>
+                            Record purchases and see
+                            where your money goes.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="expense-form" class="planner-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="expense-name">
+                            Expense Description
+                        </label>
+
+                        <input type="text" id="expense-name" maxlength="120" placeholder="Hotel Deposit" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expense-category">
+                            Category
+                        </label>
+
+                        <select id="expense-category" required>
+                            <option value="">
+                                Select Category
+                            </option>
+                            <option value="Lodging">Lodging</option>
+                            <option value="Transportation">
+                                Transportation
+                            </option>
+                            <option value="Activities">Activities</option>
+                            <option value="Dining">Dining</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expense-amount">
+                            Amount (USD)
+                        </label>
+
+                        <input type="number" id="expense-amount" min="0.01" step="0.01" placeholder="150.00" required>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Add Expense
+                    </button>
+
+                </form>
+
+                <div class="planner-list-section">
+                    <h3>My Expenses</h3>
+
+                    <div id="expense-list" class="planner-list">
+
+                        <p class="empty-message">
+                            No expenses recorded yet.
+                        </p>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 VACATION CHECKLIST
+            ================================== -->
+            <section class="planner-panel planner-panel-wide" id="checklist">
+
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">
+                        &#9989;
+                    </span>
+
+                    <div>
+                        <h2>Vacation Preparation Checklist</h2>
+                        <p>
+                            Check off everything you need
+                            before heading to paradise.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-progress-section">
+
+                    <div class="budget-row">
+                        <span>Packing Progress</span>
+                        <strong id="checklist-progress-label">
+                            0% Complete
+                        </strong>
+                    </div>
+
+                    <div class="checklist-progress-bar" id="checklist-progress-bar" role="progressbar"
+                        aria-label="Packing checklist completed" aria-valuemin="0" aria-valuemax="100"
+                        aria-valuenow="0">
+
+                        <div id="checklist-progress-fill" class="checklist-progress-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <form id="checklist-form" class="planner-form checklist-add-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="checklist-item">
+                            Add Checklist Item
+                        </label>
+
+                        <input type="text" id="checklist-item" maxlength="120" placeholder="Pack sunscreen" required>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Add Item
+                    </button>
+
+                </form>
+
+                <div id="checklist-items" class="planner-list checklist-grid">
+
+                    <p class="empty-message">
+                        Your checklist is empty.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ==================================
+         FOOTER
+    ================================== -->
+    <footer class="site-footer">
+
+        <p>Taniti Tourism</p>
+
+        <p>
+            <a href="index.html">Home</a> |
+            <a href="visitor-info.html#faqs">FAQs</a> |
+            <a href="visitor-info.html">Visitor Information</a>
+        </p>
+
+    </footer>
+
+    <!-- ==================================
+         FOOTER
+    ================================== -->
+    <footer class="site-footer">
+        <p>Taniti Tourism</p>
+
+        <p>
+            <a href="index.html">Home</a> |
+            <a href="visitor-info.html#faqs">FAQs</a> |
+            <a href="visitor-info.html">Visitor Information</a>
+        </p>
+    </footer>
+
+    <!-- ==================================
+         TOAST NOTIFICATIONS
+    ================================== -->
+    <div id="toast-container" class="toast-container" role="status" aria-live="polite" aria-atomic="true">
+    </div>
+
+</body>
+
+</html>

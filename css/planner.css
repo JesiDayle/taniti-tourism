@@ -1,0 +1,1156 @@
+
+/* ==========================================
+   TANITI VACATION PLANNER
+   Tropical Travel Dashboard
+========================================== */
+
+/* ==========================================
+   TROPICAL PLANNER HERO
+========================================== */
+
+.planner-hero {
+    min-height: 360px;
+
+    background:
+        linear-gradient(
+            rgba(0, 45, 65, 0.65),
+            rgba(0, 45, 65, 0.50)
+        ),
+        url("../images/hero.jpg") center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 70px 20px;
+    color: var(--white);
+}
+
+.planner-hero-content {
+    max-width: 800px;
+}
+
+.planner-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ccfbf1;
+    margin-bottom: 15px;
+}
+
+.planner-hero h1 {
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    color: var(--white);
+}
+
+.planner-hero-content > p:not(.planner-eyebrow) {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+}
+
+.planner-hero .btn {
+    background: var(--sand);
+    color: var(--dark-ocean);
+}
+
+.planner-hero .btn:hover {
+    background: var(--white);
+}
+
+/* ==========================================
+   LARGE VACATION COUNTDOWN
+========================================== */
+
+.planner-countdown-section {
+    max-width: 1200px;
+    margin: -35px auto 0;
+    padding: 0 5%;
+    position: relative;
+    z-index: 2;
+}
+
+.countdown-card {
+    background: linear-gradient(
+        135deg,
+        var(--ocean) 0%,
+        #087a91 55%,
+        var(--turquoise) 100%
+    );
+
+    color: var(--white);
+    text-align: center;
+
+    padding: 40px 30px;
+    border-radius: 18px;
+
+    box-shadow: 0 12px 30px rgba(7, 89, 133, 0.22);
+}
+
+.countdown-label {
+    font-size: 0.85rem;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: #e0fdfa;
+}
+
+.countdown-number {
+    font-size: clamp(4rem, 9vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+
+    margin: 15px 0 5px;
+    color: var(--white);
+}
+
+.countdown-card h2 {
+    font-size: 1.7rem;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.countdown-card p {
+    color: var(--white);
+}
+
+#countdown-message {
+    font-size: 1rem;
+    margin-bottom: 22px;
+}
+
+.countdown-progress {
+    width: 100%;
+    max-width: 650px;
+    height: 12px;
+
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.countdown-progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: var(--sand);
+    border-radius: 50px;
+
+    transition: width 0.5s ease;
+}
+
+/* ==========================================
+   VACATION OVERVIEW
+========================================== */
+
+.planner-overview {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 55px 5% 20px;
+
+    text-align: center;
+}
+
+.planner-overview h2 {
+    color: var(--ocean);
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 8px;
+}
+
+.section-description {
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+.planner-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px 18px;
+
+    border-radius: 14px;
+    border-bottom: 5px solid var(--turquoise);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+
+    min-width: 0;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card:nth-child(2) {
+    border-bottom-color: var(--ocean);
+}
+
+.stat-card:nth-child(3) {
+    border-bottom-color: #c58c3d;
+}
+
+.stat-card:nth-child(4) {
+    border-bottom-color: #15803d;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.stat-card h3 {
+    color: var(--dark-ocean);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    color: var(--ocean);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   QUICK NAVIGATION
+========================================== */
+
+.planner-quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.planner-quick-nav a {
+    display: inline-block;
+
+    background: var(--sand);
+    color: var(--dark-ocean);
+
+    padding: 11px 20px;
+    border-radius: 30px;
+
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.planner-quick-nav a:hover {
+    background: #d9ede8;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   MAIN PLANNER LAYOUT
+========================================== */
+
+.planner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 5% 75px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+.planner-panel {
+    background: var(--white);
+    border-radius: 15px;
+    border-top: 5px solid var(--turquoise);
+
+    padding: 30px;
+    min-width: 0;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.planner-panel-wide {
+    grid-column: 1 / -1;
+}
+
+.planner-panel h2 {
+    color: var(--ocean);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.planner-panel h3 {
+    color: var(--dark-ocean);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.planner-panel[id] {
+    scroll-margin-top: 110px;
+}
+
+/* ==========================================
+   PANEL HEADINGS AND ICONS
+========================================== */
+
+.panel-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.panel-heading > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.panel-heading p {
+    font-size: 0.95rem;
+    color: #526674;
+}
+
+.panel-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.7rem;
+    background: var(--sand);
+    border-radius: 12px;
+
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   PLANNER FORMS
+========================================== */
+
+.planner-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: var(--dark-ocean);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.planner-form input,
+.planner-form select,
+.planner-form textarea {
+    width: 100%;
+    min-width: 0;
+
+    padding: 12px 14px;
+
+    border: 1px solid #9aaeb9;
+    border-radius: 8px;
+
+    background: var(--white);
+    color: var(--text);
+
+    font: inherit;
+    font-size: 1rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.planner-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.planner-form input:focus,
+.planner-form select:focus,
+.planner-form textarea:focus {
+    outline: 2px solid var(--ocean);
+    outline-offset: 2px;
+    border-color: var(--ocean);
+}
+
+.planner-form .btn {
+    align-self: flex-start;
+    margin-top: 5px;
+
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+/* ==========================================
+   VACATION BUDGET
+========================================== */
+
+.budget-summary {
+    margin-top: 25px;
+    padding: 22px;
+
+    background: var(--sand);
+    border-radius: 12px;
+}
+
+.budget-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 12px;
+}
+
+.budget-row span {
+    color: var(--text);
+}
+
+.budget-row strong {
+    color: var(--ocean);
+    font-size: 1.05rem;
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
+.budget-progress,
+.checklist-progress-bar {
+    width: 100%;
+    height: 14px;
+
+    background: #d1dce1;
+    border-radius: 50px;
+
+    overflow: hidden;
+    margin: 20px 0 12px;
+}
+
+.budget-progress-fill,
+.checklist-progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: var(--turquoise);
+    border-radius: 50px;
+
+    transition: width 0.5s ease;
+}
+
+.budget-progress-fill.over-budget {
+    background: #b91c1c;
+}
+
+.budget-message {
+    font-size: 0.9rem;
+    color: var(--dark-ocean);
+}
+
+.budget-message.over-budget {
+    color: #9e3030;
+    font-weight: 700;
+}
+
+/* ==========================================
+   ITINERARY SPLIT LAYOUT
+========================================== */
+
+.planner-split-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 35px;
+}
+
+.planner-form-column,
+.planner-results-column {
+    min-width: 0;
+}
+
+.planner-form-column {
+    padding-right: 25px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.planner-helper-text {
+    font-size: 0.9rem;
+    color: #526674;
+    margin-bottom: 20px;
+}
+
+.planner-text-link {
+    display: inline-block;
+    margin-top: 18px;
+
+    color: var(--ocean);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.planner-text-link:hover {
+    color: var(--turquoise);
+}
+
+/* ==========================================
+   DAY-BY-DAY ITINERARY TIMELINE
+========================================== */
+
+.itinerary-timeline {
+    position: relative;
+    padding-left: 12px;
+}
+
+.itinerary-day {
+    margin-bottom: 22px;
+}
+
+.itinerary-day-heading {
+    background: var(--sand);
+    border-left: 5px solid var(--ocean);
+
+    padding: 12px 16px;
+    border-radius: 8px;
+
+    color: var(--dark-ocean);
+    font-size: 1rem;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.itinerary-day-activities {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding-left: 20px;
+    border-left: 3px solid #99d5cc;
+}
+
+.itinerary-timeline .planner-list-item {
+    position: relative;
+    background: #f0fdfa;
+}
+
+.itinerary-timeline .planner-list-item::before {
+    content: "";
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    background: var(--turquoise);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+
+    left: -29px;
+    top: 20px;
+}
+
+/* ==========================================
+   RESERVATION AND EXPENSE LISTS
+========================================== */
+
+.planner-list-section {
+    margin-top: 30px;
+}
+
+.planner-list-section h3 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--sand);
+}
+
+.planner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.planner-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 17px;
+
+    background: var(--background);
+
+    border: 1px solid #dbe5eb;
+    border-left: 4px solid var(--turquoise);
+    border-radius: 8px;
+
+    min-width: 0;
+}
+
+.planner-list-item > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.planner-list-item h4 {
+    color: var(--ocean);
+    font-size: 1rem;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+.planner-list-item p {
+    color: var(--text);
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.empty-message {
+    text-align: center;
+    color: #526674;
+
+    padding: 25px 15px;
+
+    background: var(--background);
+    border: 1px dashed #aabcc5;
+    border-radius: 8px;
+}
+
+/* ==========================================
+   REMOVE BUTTONS
+========================================== */
+
+.planner-delete-btn {
+    background: #9e3030;
+    color: var(--white);
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 9px 13px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    flex-shrink: 0;
+
+    transition: background-color 0.2s ease;
+}
+
+.planner-delete-btn:hover {
+    background: #742020;
+}
+
+/* ==========================================
+   VACATION CHECKLIST
+========================================== */
+
+.checklist-progress-section {
+    max-width: 650px;
+    margin-bottom: 30px;
+
+    padding: 20px;
+    background: var(--sand);
+    border-radius: 10px;
+}
+
+.checklist-progress-section .budget-row {
+    margin-bottom: 0;
+}
+
+.checklist-progress-bar {
+    margin-bottom: 0;
+}
+
+.checklist-add-form {
+    max-width: 650px;
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.checklist-grid .empty-message {
+    grid-column: 1 / -1;
+}
+
+.checklist-grid .planner-list-item {
+    min-width: 0;
+}
+
+.checklist-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.checklist-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+
+    accent-color: var(--turquoise);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checklist-label span {
+    overflow-wrap: anywhere;
+}
+
+.checklist-label .completed {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+/* ==========================================
+   NOTICES
+========================================== */
+
+.planner-note {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: var(--sand);
+    border-left: 4px solid var(--ocean);
+    border-radius: 6px;
+
+    color: var(--text);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.planner-quick-nav a:focus-visible,
+.planner-text-link:focus-visible,
+.planner-delete-btn:focus-visible,
+.planner-form .btn:focus-visible,
+.checklist-label input:focus-visible {
+    outline: 3px solid var(--ocean);
+    outline-offset: 3px;
+}
+
+.planner-hero .btn:focus-visible {
+    outline-color: #facc15;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .planner-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .planner-split-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .planner-form-column {
+        padding-right: 0;
+        padding-bottom: 25px;
+
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .planner-container {
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        padding: 35px 5% 60px;
+    }
+
+    .planner-panel-wide {
+        grid-column: auto;
+    }
+
+    .planner-panel {
+        padding: 28px;
+    }
+
+    .planner-countdown-section,
+    .planner-overview {
+        max-width: 760px;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 600px) {
+
+    .planner-hero {
+        min-height: 300px;
+        padding: 55px 20px;
+    }
+
+    .planner-eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+    }
+
+    .planner-hero-content > p:not(.planner-eyebrow) {
+        font-size: 1rem;
+    }
+
+    .planner-countdown-section {
+        margin-top: -20px;
+        padding: 0 4%;
+    }
+
+    .countdown-card {
+        padding: 30px 18px;
+        border-radius: 12px;
+    }
+
+    .countdown-number {
+        font-size: 4rem;
+    }
+
+    .countdown-card h2 {
+        font-size: 1.35rem;
+    }
+
+    .countdown-label {
+        font-size: 0.72rem;
+        letter-spacing: 1.5px;
+    }
+
+    .planner-overview {
+        padding: 40px 4% 15px;
+    }
+
+    .planner-stats {
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 20px 12px;
+    }
+
+    .stat-icon {
+        font-size: 1.6rem;
+    }
+
+    .stat-card h3 {
+        font-size: 0.85rem;
+    }
+
+    .stat-card p {
+        font-size: 1.55rem;
+    }
+
+    .planner-quick-nav {
+        gap: 8px;
+    }
+
+    .planner-quick-nav a {
+        font-size: 0.85rem;
+        padding: 9px 14px;
+    }
+
+    .planner-container {
+        padding: 25px 4% 50px;
+        gap: 20px;
+    }
+
+    .planner-panel {
+        padding: 22px 18px;
+        border-radius: 10px;
+    }
+
+    .planner-panel h2 {
+        font-size: 1.35rem;
+    }
+
+    .panel-heading {
+        gap: 12px;
+    }
+
+    .panel-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
+    }
+
+    .planner-form .btn {
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .planner-list-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .planner-delete-btn {
+        align-self: flex-end;
+    }
+
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .budget-summary {
+        padding: 18px;
+    }
+}
+
+/* ==========================================
+   EXTRA SMALL SCREENS
+========================================== */
+
+@media (max-width: 380px) {
+
+    .planner-panel {
+        padding: 18px 14px;
+    }
+
+    .planner-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .countdown-number {
+        font-size: 3.2rem;
+    }
+
+    .budget-row {
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .countdown-progress-fill,
+    .budget-progress-fill,
+    .checklist-progress-fill,
+    .stat-card,
+    .planner-quick-nav a,
+    .planner-form input,
+    .planner-form select,
+    .planner-form textarea,
+    .planner-delete-btn {
+        transition: none;
+    }
+
+    .stat-card:hover,
+    .planner-quick-nav a:hover {
+        transform: none;
+    }
+}
+
+
+/* ==========================================
+   INLINE FORM VALIDATION
+========================================== */
+
+/* Invalid input appearance */
+.planner-form .input-error {
+    border: 2px solid #b91c1c;
+    background-color: #fff7f7;
+}
+
+.planner-form .input-error:focus {
+    border-color: #b91c1c;
+    outline: 2px solid #b91c1c;
+    outline-offset: 2px;
+}
+
+/* Error messages below inputs */
+.form-error {
+    display: block;
+    color: #b91c1c;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 3px;
+}
+
+/* ==========================================
+   TOAST NOTIFICATIONS
+========================================== */
+
+/* Fixed notification area */
+.toast-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+
+    max-width: calc(100vw - 30px);
+    pointer-events: none;
+}
+
+/* Individual notification */
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 240px;
+    max-width: 360px;
+
+    padding: 15px 20px;
+
+    background: var(--white);
+    color: var(--dark-ocean);
+
+    border-left: 5px solid var(--turquoise);
+    border-radius: 10px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    animation: toast-slide-in 0.3s ease;
+}
+
+/* Success notifications */
+.toast-success {
+    border-left-color: var(--turquoise);
+}
+
+/* Error notifications */
+.toast-error {
+    border-left-color: #b91c1c;
+}
+
+/* Toast icons */
+.toast-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.toast-success .toast-icon {
+    color: #0d766d;
+}
+
+.toast-error .toast-icon {
+    color: #b91c1c;
+}
+
+/* Disappearing animation */
+.toast.toast-hide {
+    animation: toast-slide-out 0.3s ease forwards;
+}
+
+/* ==========================================
+   TOAST ANIMATIONS
+========================================== */
+
+@keyframes toast-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes toast-slide-out {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+/* ==========================================
+   MOBILE TOAST NOTIFICATIONS
+========================================== */
+
+@media (max-width: 600px) {
+
+    .toast-container {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        align-items: stretch;
+    }
+
+    .toast {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .toast,
+    .toast.toast-hide {
+        animation: none;
+    }
+}
